@@ -1,0 +1,19 @@
+def knapsack(arr,k):
+    if k==0:
+        a.append(0)
+    elif k>0:
+        for x in range(0,len(arr)):
+            if k<arr[x]:
+                a.append(k)
+            else:
+                k=k-arr[x]
+                knapsack(arr,k,a)
+    return a
+test_case = int(raw_input())
+for x in range(0,test_case):
+    n,k = map(int,raw_input().split())
+    arr = map(int,raw_input().split())
+    arr = list(set(arr))
+    a =[]
+    b = knapsack(arr,k,a)
+    print k-min(b)
